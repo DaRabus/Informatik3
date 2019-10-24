@@ -7,17 +7,16 @@ using namespace std;
 
 void join_string(list<string> *lst, char separator_char, string *str)
 {
-    list<string>::const_iterator opswitch;
-
-for(opswitch = lst->begin(); opswitch != lst->end(); opswitch++)
+    unsigned int counter = 0;
+for(list<string>::iterator opswitch = lst->begin(); opswitch != lst->end(); opswitch++)
 {
 
-    *str->insert(*str->begin(),*lst)
-       if (lst != lst->end() - 1){
-         *str + separator_char;
+    counter++;
+    *str += *opswitch;
+    if(counter != lst->size()){
+        *str += separator_char;
     }
-
-}
+    }
 }
 
 
