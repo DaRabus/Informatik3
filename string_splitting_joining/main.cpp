@@ -11,9 +11,9 @@ void join_string(list<string> *lst, char separator_char, string *str)
 for(list<string>::iterator opswitch = lst->begin(); opswitch != lst->end(); opswitch++)
 {
 
-    counter++;
-    *str += *opswitch;
-    if(counter != lst->size()){
+    counter++; //Increase Counter for every single word
+    *str += *opswitch; //Put words together
+    if(counter != lst->size()){ //Add seperator Char
         *str += separator_char;
     }
     }
@@ -22,7 +22,20 @@ for(list<string>::iterator opswitch = lst->begin(); opswitch != lst->end(); opsw
 
 void split_string(string *str, char separator_char, list<string> *lst)
 {
-    // TODO
+
+//for(list<string>::iterator opswitch = lst->begin(); opswitch != check; opswitch++){
+//}
+    size_t current, previous = 0;
+    current = str->find_first_of(separator_char);
+    while(current != std::string::npos){
+    lst->push_back(str->substr(previous , current - previous));
+    previous = current +1;
+    current = str->find_first_of(separator_char,previous);
+
+    }
+    lst->push_back(str->substr(previous,current-previous));
+
+
 }
 
 int main()
@@ -58,8 +71,7 @@ int main()
     cout << "Output is a list with " << out_lst.size() //Count the size of the new list
         << " entries:" << endl;
 
-    for (list<string>::iterator it = out_lst.begin(); //Print out the seperated strings
-        it != out_lst.end(); it++)
+    for (list<string>::iterator it = out_lst.begin();it != out_lst.end(); it++) //Print out the seperated strings
     {
         cout << "    " << *it << "\n";
     }
