@@ -1,0 +1,95 @@
+@startuml
+interface Screen {
+	+{abstract}refresh()
+	+{abstract}clear()
+	+{abstract}put(vec : const IntVec2&, c : char)
+	+{abstract}put(vec : const IntVec2&, str : const std::string&)
+	+{abstract}get(vec : const IntVec2&) : char
+}
+
+interface ConsoleScreen {
+	+refresh()
+	+clear()
+	+put(vec : const IntVec2&, c : char)
+	+put(vec : const IntVec2&, str : const std::string&)
+	+get(vec : const IntVec2&) : char
+}
+
+class IntVec2 {
+	-row : int
+	-col : int
+	rotateLeft()
+	rotateRight()
+}
+
+class Pose {
+	-pos : IntVec2
+	-dir : IntVec2
+	rotateLeft()
+	rotateRight()
+	moveForward()
+}
+
+enum FieldType {
+	Blocked,
+	Free,
+	StartEast,
+	StartNorth,
+	StartWest,
+	StartSouth,
+	Finish
+}
+
+class Maze {
+	+load(filename : const std::string&)
+	+show(screen : Screen&)
+	+get(vec : const IntVec2&) : FieldType
+	+set(vec : const IntVec2&, field : FieldType)
+	-cells : std::vector<std::string>
+}
+
+abstract class Agent {
+	+{abstract}nextStep()
+	+show(screen : Screen&)
+	#turnLeft()
+	#turnRight()
+	#moveForward() : bool
+	#frontIsFree() : bool
+	#leftIsFree() : bool
+	#rightIsFree() : bool
+	#getMoves() : std::vector<size_t>
+	-full_maze : const Maze&
+	-real_pose : Pose
+}
+
+abstract class MappingAgent {
+	+{abstract}nextStep()
+	+showDiscovered(screen : Screen&);
+	#discovered_maze : Maze
+	#estm_pose : Pose
+}
+
+class Tremaux {
+	+{abstract}nextStep()
+}
+
+class RandomMouse {
+	+{abstract}nextStep()
+}
+
+class WallFollower {
+	+{abstract}nextStep()
+}
+
+Screen <|-- ConsoleScreen
+Pose *-- IntVec2
+Agent <|-- MappingAgent
+MappingAgent <|-- Tremaux
+Agent <|-- RandomMouse
+Agent <|-- WallFollower
+Agent *-- Maze
+Maze - FieldType : uses
+Agent *-- Pose
+MappingAgent *-- Maze
+MappingAgent *-- Pose
+@enduml

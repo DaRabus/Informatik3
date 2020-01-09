@@ -17,6 +17,7 @@ public:
 		const std::string &outFilename);
 
 private:
+
 	std::set<std::string> words;
 
 	bool wordIsOkay(const std::string &word);
