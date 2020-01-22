@@ -21,7 +21,7 @@ int main()
 		double x = (2.0 * M_PI * c) / (screenSize.width - 1);
 
 		// y is in [-1 .. 1]
-		double y = sin(x);
+        double y = sin(x);
 
 		// r is in [(screenSize.height-1) .. 0]
 		int r = round(((screenSize.height - 1) * (1.0 - y)) / 2.0);

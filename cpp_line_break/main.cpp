@@ -4,7 +4,35 @@
 
 std::string break_lines(const std::string &str, size_t max_len)
 {
+
+assert(max_len > 0);
+std::string input(str);
+std::string output;
+while (true)
+{
+if (input.size() <= max_len)
+{
+output += input;
+return output;
 }
+else
+{
+int pos = max_len;
+while ((pos >= 0) && (input.at(pos) != ' '))
+{
+pos--;
+}
+// This is the case that there is one word in str that is longer
+// than max_len; we do not handle this case but stop the program
+assert(pos >= 0);
+// Append new line to output
+output = output + input.substr(0, pos) + "\n";
+// Remove this from input (including space)
+input.erase(0, pos + 1);
+}
+}
+}
+
 
 void print_example(const std::string &str, size_t max_len)
 {
@@ -40,6 +68,7 @@ void run_test_suite()
 
 int main()
 {
-    print_example("Hello World!", 7);
+    print_example("Hello World! we love you so much", 7);
+
     //run_test_suite();
 }
