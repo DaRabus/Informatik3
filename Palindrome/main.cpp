@@ -10,13 +10,14 @@ std::string revert_string(std::string *str)
         result += str->at(i);
     }
     return result;
+    std::cout << str << std::endl;
 }
 
 
 
 int main()
 {
-    std::string str = "sugus";
+    std::string str = "olloH";
 
     std::cout << str << std::endl;
     std::cout << revert_string(&str) << std::endl;

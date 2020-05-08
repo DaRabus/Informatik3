@@ -1,0 +1,1 @@
+/usr/bin/g++   -std=c++11 -Wall  -rdynamic CMakeFiles/curlctest.dir/main.cpp.o  -o curlctest /usr/local/lib/libTgBot.a -lpthread -lssl -lcrypto -lboost_system -lcurl 

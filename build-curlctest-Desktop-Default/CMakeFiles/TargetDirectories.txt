@@ -1,0 +1,3 @@
+/home/student/Informatik3/build-curlctest-Desktop-Default/CMakeFiles/rebuild_cache.dir
+/home/student/Informatik3/build-curlctest-Desktop-Default/CMakeFiles/curlctest.dir
+/home/student/Informatik3/build-curlctest-Desktop-Default/CMakeFiles/edit_cache.dir

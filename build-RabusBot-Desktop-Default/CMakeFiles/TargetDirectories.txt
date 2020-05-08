@@ -1,0 +1,3 @@
+/home/student/Informatik3/build-RabusBot-Desktop-Default/CMakeFiles/rebuild_cache.dir
+/home/student/Informatik3/build-RabusBot-Desktop-Default/CMakeFiles/RabusBot.dir
+/home/student/Informatik3/build-RabusBot-Desktop-Default/CMakeFiles/edit_cache.dir
