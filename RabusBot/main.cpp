@@ -1,6 +1,3 @@
-//Token: 1122758262:AAFiM8n4f7m9-szeLjhvSF2yQJ9Rsilu6NI
-//API Key 	LFGXA9Y4-GYCNXRWN-QNC70DCO-B5U1R092
-//Secret 	cb0774508eb9779d6eb564a3eef165d6404fc937b07961a7c008afa1ebd6418415a90acc50933276d5129c35c988151f8fa273058c2f16e057c864de352ccf28
 
 #include <iostream>
 #include <string>
@@ -36,7 +33,7 @@ int main() {
     gettimeofday(&tp, NULL);
     long int ms = tp.tv_sec * 1000 + tp.tv_usec / 1000;
     std::string test;
-    TgBot::Bot bot("1122758262:AAFiM8n4f7m9-szeLjhvSF2yQJ9Rsilu6NI"); //Communicating with the Telegram Bot
+    TgBot::Bot bot("TGKEY"); //Communicating with the Telegram Bot
 
     CURL *curl = curl_easy_init();
     CURLcode res;
@@ -46,12 +43,12 @@ int main() {
       curl_easy_setopt(curl, CURLOPT_SSL_VERIFYPEER, 0L); //only for https
       curl_easy_setopt(curl, CURLOPT_SSL_VERIFYHOST, 0L); //only for https
 
-      std::string data = "Key=LFGXA9Y4-GYCNXRWN-QNC70DCO-B5U1R092&Sign=cb0774508eb9779d6eb564a3eef165d6404fc937b07961a7c008afa1ebd6418415a90acc50933276d5129c35c988151f8fa273058c2f16e057c864de352ccf28";
+      std::string data = "Key=&Sign";
       curl_easy_setopt(curl, CURLOPT_POSTFIELDS, data.c_str());
       curl_easy_setopt(curl, CURLOPT_POSTFIELDSIZE, data.length());
 /*
       std::stringstream post_parameters;
-      post_parameters<<"Key=LFGXA9Y4-GYCNXRWN-QNC70DCO-B5U1R092&Sign=cb0774508eb9779d6eb564a3eef165d6404fc937b07961a7c008afa1ebd6418415a90acc50933276d5129c35c988151f8fa273058c2f16e057c864de352ccf28"<<
+      post_parameters<<"Key=&Sign"<<
       curl_easy_setopt(curl, CURLOPT_COPYPOSTFIELDS, post_parameters.str().c_str());
       curl_easy_setopt(curl, CURLOPT_POSTFIELDS, "{\"hi\" : \"there\"}");
 */
